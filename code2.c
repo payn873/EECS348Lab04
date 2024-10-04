@@ -4,6 +4,12 @@ int main(){
 	char type;
 	float temp;
 	char scale;
+	float celsius_to_farenheit(float);
+	float farenheit_to_celsius(float);
+	float kelvin_to_celsius(float);
+	float celsius_to_kelvin(float);
+	float farenheit_to_kelvin(float);
+	float kelvin_to_farenheit(float);
 	printf("Enter what temperature type you are inputing (e.x. f, c, k): ");
 	scanf(" %c", &type);
 	while(type != 'f' && type != 'c' && type != 'k'){
@@ -20,50 +26,58 @@ int main(){
 	}
 	if(type == 'f'){
 		if(scale == 'c'){
-			printf("%f", farenheit_to_celsius(temp));
+			printf("%f\n", farenheit_to_celsius(temp));
 		}
 		else{
-			printf("%f", farenheit_to_kelvinn(temp));
+			printf("%f\n", farenheit_to_kelvin(temp));
 		}
 	}
 	else if(type == 'c'){
 		if(scale == 'k'){
-			printf("%f", celsius_to_kelvin(temp));
+			printf("%f\n", celsius_to_kelvin(temp));
 		}
 		else{
-			printf("%f", celsius_to_farenheit(temp));
+			printf("%f\n", celsius_to_farenheit(temp));
 		}
 	}
 	else{
 		if(scale == 'f'){
-			printf("%f", kelvin_to_farenheit(temp));
+			printf("%f\n", kelvin_to_farenheit(temp));
 		}
 		else{
-			printf("&f", kelvin_to_celsius(temp));
+			printf("%f\n", kelvin_to_celsius(temp));
 		}
 	}
 }
 
 float celsius_to_farenheit(float celsius){
-	return (9.0/5.0)*celsius + 32.0;
+	float farenheit = (9.0/5.0)*celsius + 32.0;
+	return farenheit;
 }
 
 float farenheit_to_celsius(float farenheit){
-	return (5.0/9.0)*(farenheit-32.0);
+	float celsius = (5.0/9.0)*(farenheit-32.0);
+	return celsius;
 }
 
 float celsius_to_kelvin(float celsius){
-	return celsius + 273.15;
+	float kelvin =  celsius + 273.15;
+	return kelvin;
 }
 
 float kelvin_to_celsius(float kelvin){
-	return kelvin - 273.15;
+	float celsius =  kelvin - 273.15;
+	return celsius;
 }
 
 float kelvin_to_farenheit(float kelvin){
-	return celsius_to_farenheit(kelvin_to_celsius(kelvin));
+	float celsius = kelvin_to_celsius(kelvin);
+	float farenheit = celsius_to_farenheit(celsius);
+	return farenheit;
 }
 
 float farenheit_to_kelvin(float farenheit){
-	return celsius_to_kelvin(farenheit_to_celsius(farenheit));
+	float celsius = farenheit_to_celsius(farenheit);
+	float kelvin = celsius_to_kelvin(celsius);
+	return kelvin;
 }
