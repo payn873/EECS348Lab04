@@ -19,3 +19,27 @@ int main(){
 		scanf(" %c", &scale);
 	}
 }
+
+float celsius_to_farenheit(float celsius){
+	return (9.0/5.0)*celsius + 32.0;
+}
+
+float farenheit_to_celsius(float farenheit){
+	return (5.0/9.0)*(farenheit-32.0);
+}
+
+float celsius_to_kelvin(float celsius){
+	return celsius + 273.15;
+}
+
+float kelvin_to_celsius(float kelvin){
+	return kelvin - 273.15;
+}
+
+float kelvin_to_farenheit(float kelvin){
+	return celsius_to_farenheit(kelvin_to_celsius(kelvin));
+}
+
+float farenheit_to_kelvin(float farenheit){
+	return celsius_to_kelvin(farenheit_to_celsius(farenheit));
+}
