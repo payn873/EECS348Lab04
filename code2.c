@@ -18,6 +18,30 @@ int main(){
 		printf("You entered an invalid temperature type. Pleae enter f for farenheit, c for celsius, or k for kelvin, and remember to make sure this type is different from the previously entered type: ");
 		scanf(" %c", &scale);
 	}
+	if(type == 'f'){
+		if(scale == 'c'){
+			printf("%f", farenheit_to_celsius(temp));
+		}
+		else{
+			printf("%f", farenheit_to_kelvinn(temp));
+		}
+	}
+	else if(type == 'c'){
+		if(scale == 'k'){
+			printf("%f", celsius_to_kelvin(temp));
+		}
+		else{
+			printf("%f", celsius_to_farenheit(temp));
+		}
+	}
+	else{
+		if(scale == 'f'){
+			printf("%f", kelvin_to_farenheit(temp));
+		}
+		else{
+			printf("&f", kelvin_to_celsius(temp));
+		}
+	}
 }
 
 float celsius_to_farenheit(float celsius){
