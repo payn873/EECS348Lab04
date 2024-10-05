@@ -19,6 +19,24 @@ int main(){
 	}
 	printf("Enter the temperature value (float): ");
 	scanf("%f", &temp);
+	if(type == 'f'){
+		while(farenheit_to_kelvin(temp) < 0){
+			printf("You enterd an invalid temperature, please try again: ");
+			scanf("%f", &temp);
+		}
+	}
+	else if(type == 'c'){
+		while(celsius_to_kelvin(temp) < 0){
+			printf("You entered an invalid temperature, please try again: ");
+			scanf("%f", &temp);
+		}
+	}
+	else{
+		while(temp < 0){
+			printf("You entered an invalid temperature, please try again: ");
+			scanf("%f", &temp);
+		}
+	}
 	printf("Enter what temperature type you wish to conver to (e.x. f, c, k): ");
 	scanf(" %c", &scale);
 	while((scale != 'f' && scale != 'c' && scale != 'k') || scale == type){
